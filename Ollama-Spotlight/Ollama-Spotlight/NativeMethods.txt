@@ -1,0 +1,8 @@
+RegisterHotKey
+SetWindowLong
+SetWindowLongPtr
+CallWindowProc
+ShowWindow
+SetForegroundWindow
+SetFocus
+SetActiveWindow

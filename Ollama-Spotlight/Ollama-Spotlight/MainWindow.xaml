@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="Ollama_Spotlight.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:community="using:CommunityToolkit.WinUI.UI.Controls"
+    Activated="Current_Activated"
+    mc:Ignorable="d">
+    <Window.SystemBackdrop>
+        <MicaBackdrop Kind="Base" />
+    </Window.SystemBackdrop>
+    <Grid x:Name="Container" KeyDown="Container_KeyDown" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <TextBox PreviewKeyDown="LlamaInput_KeyDown" x:Name="LlamaInput" PlaceholderText="Ask LLaMa 3" AcceptsReturn="True" FontSize="32" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="24,26" />
+        <Grid x:Name="Response" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="24,24" Visibility="Collapsed">
+            <ScrollView x:Name="Scroller" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid CornerRadius="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Stretch">
+                        <Frame Width="72" Height="72" Margin="0,3,0,0" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top" CornerRadius="48" />
+                    </StackPanel>
+                    <Grid Grid.Column="1" Margin="24,6,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" TextWrapping="Wrap" Text="LLaMA 3" FontSize="36" FontWeight="Medium" />
+                        <community:MarkdownTextBlock x:Name="ResponseBlock" FontSize="24" Background="Transparent" Margin="0,56,0,0" />
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </Grid>
+</Window>
